@@ -6,7 +6,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 ## 1、接口地址 & 代码开源     
 #### API：https://api.telecom.ac.cn/    
 #### APICDN：https://cdn.api.telecom.ac.cn/ （暂未上线）    
-#### APIDOC：https://doc.api.telecom.ac.cn/         
+#### APIDOC：doc.api.telecom.ac.cn/         
 #### Github:    
 #### Gitee:https://gitee.com/garynotgay/api    
 
@@ -40,7 +40,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 #### 2.3 Ckey8x    
 路径：https://api.telecom.ac.cn/ckey8x    
 说明：TX视频请求参数校验算法    
-参考：https://www.jianshu.com/p/75619f7e3956    
+参考：https://www.pohaier.com/2018/12/22/227.html    
 示例：https://api.telecom.ac.cn/ckey8x?vid=i0037ryjlwn&time=1623678055&guid=6eb81823f6e496f9a87c88fbe977dee0&platform=4830201&url=https://wetv.vip    
 
 | 参数 | 必选 | 示例 | 说明 |
