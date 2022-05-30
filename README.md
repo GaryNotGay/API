@@ -4,11 +4,11 @@ Contact :  lijishi@163.com
 License :  GNU GENERAL PUBLIC LICENSE Version 3    
 
 ## 1、接口地址 & 代码开源     
-#### API：https://api.telecom.ac.cn/    
-#### APICDN：https://cdn.api.telecom.ac.cn/ （暂未上线）    
-#### APIDOC：doc.api.telecom.ac.cn/         
-#### Github:    
-#### Gitee:https://gitee.com/garynotgay/api    
+#### API：api.telecom.ac.cn   
+#### APICDN：cdn.api.telecom.ac.cn      
+#### APIDOC：doc.api.telecom.ac.cn         
+#### Github：    
+#### Gitee：gitee.com/garynotgay/api    
 
 ## 2、开发文档    
 #### 2.1 MangoTV    
