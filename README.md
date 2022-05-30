@@ -37,8 +37,8 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | tm | 是 | 1651217559 | 10位时间戳 |
 | ver | 是 | 7.1 | 7.x，其中x为周几 |
     
-#### 2.3 Ckey8x    
-路径：https://api.telecom.ac.cn/ckey8x    
+#### 2.3 Ckey81    
+路径：https://api.telecom.ac.cn/ckey81    
 说明：TX视频请求参数校验算法    
 参考：https://www.pohaier.com/2018/12/22/227.html    
 示例：https://api.telecom.ac.cn/ckey8x?vid=i0037ryjlwn&time=1623678055&guid=6eb81823f6e496f9a87c88fbe977dee0&platform=4830201&url=https://wetv.vip    
