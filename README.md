@@ -6,7 +6,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 ## 1、接口地址 & 代码开源     
 #### API：https://api.telecom.ac.cn/    
 #### APICDN：https://cdn.api.telecom.ac.cn/ （暂未上线）    
-#### APIDOC：https://doc.api.telecom.ac.cn/ （暂未上线）    
+#### APIDOC：https://doc.api.telecom.ac.cn/         
 #### Github:    
 #### Gitee:https://gitee.com/garynotgay/api    
 
@@ -49,4 +49,19 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | vid | 是 | i0037ryjlwn | 视频vid |
 | guid | 是 | 6eb81823f6e496f9a87c88fbe977dee0 | 请求参数之一 |
 | time | 是 | 1651217559 | 10位时间戳 |
+| url | 是 | https://wetv.vip | 请求参数之一 |
+    
+#### 2.4 Ckey91    
+路径：https://api.telecom.ac.cn/ckey91    
+说明：TX视频请求参数校验算法    
+参考：https://github.com/ZSAIm/iqiyi-parser/blob/master/js/tencent.js    
+示例：https://api.telecom.ac.cn/ckey91?   platform=10201&appver=3.5.57&vid=j002024w2wgguid=1fcb9528b79f2065c9a281a7d554edd1&tm=1556617308&url=https://wetv.vip    
+
+| 参数 | 必选 | 示例 | 说明 |   
+| --- | --- | --- | --- |
+| platform | 是 | 10201 | 请求参数之一 |
+| appver | 是 | 3.5.57 | 请求参数之一 |
+| vid | 是 | j002024w2wgguid | 视频vid |
+| guid | 是 | 1fcb9528b79f2065c9a281a7d554edd1 | 请求参数之一 |
+| tm | 是 | 1651217559 | 10位时间戳 |
 | url | 是 | https://wetv.vip | 请求参数之一 |
