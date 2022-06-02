@@ -65,3 +65,14 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | guid | 是 | 1fcb9528b79f2065c9a281a7d554edd1 | 请求参数之一 |
 | tm | 是 | 1651217559 | 10位时间戳 |
 | url | 是 | https://wetv.vip | 请求参数之一 |
+    
+#### 2.5 cmd5x    
+路径：https://api.telecom.ac.cn/cmd5x    
+说明：IQIYI视频请求参数校验算法    
+示例：https://api.telecom.ac.cn/cmd5x?parma=aXFpeWlwYXJhbQ==    
+
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| parma | 是 | 10201 | dash请求参数base64格式 |
+
+
