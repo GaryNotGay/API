@@ -84,4 +84,16 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | --- | --- | --- | --- |
 | cid | 是 | 26311295 | PPTV视频id，获取方法自行探索 |
 | qua | 否 | 3,4 | 可选视频质量，270P(0)，480P(1)，720P(2)，1080P(3)，1080P高码(4)，默认全选，英文逗号分隔 |
+    
+#### 2.7 TX体育    
+路径：https://api.telecom.ac.cn/qqsport    
+说明：TX体育直播解析M3U8    
+示例：https://api.telecom.ac.cn/qqsprt?mid=208:2288013&qua=1    
 
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| mid | 是 | 208:2288013 | TX体育直播id |
+| qua | 否 | 3,4 | 可选视频质量，270P(0)，480P(1)，720P(2)，1080P(3)，默认1080P，只可单选 |
+| openid | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
+| appid | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
+| token | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
