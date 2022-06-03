@@ -74,5 +74,14 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
 | parma | 是 | 10201 | dash请求参数base64格式 |
+    
+#### 2.6 PPTV    
+路径：https://api.telecom.ac.cn/pptv    
+说明：PPTV视频解析M3U8    
+示例：https://api.telecom.ac.cn/pptv?cid=26311295&qua=3,4    
 
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| cid | 是 | 26311295 | PPTV视频id，获取方法自行探索 |
+| qua | 否 | 3,4 | 可选视频质量，270P(0)，480P(1)，720P(2)，1080P(3)，1080P高码(4)，默认全选，英文逗号分隔 |
 
