@@ -97,3 +97,15 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | openid | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
 | appid | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
 | token | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
+    
+#### 2.8 MIGU视频    
+路径：https://api.telecom.ac.cn/migu    
+说明：MIGU视频解析M3U8    
+示例：https://api.telecom.ac.cn/migu?qua=2,3,4,6,8&cid=732903127    
+
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| cid | 是 | 732903127 | MIGU视频id |
+| qua | 否 | 3,4 | 可选视频质量，可选范围1-10，已知540P(2)，720P(3)，1080P(4)，原画4K(6)，原画HDR(7)，超清4K(8)，默认2,3,4，大于等于1080P清晰度均需cookie，否则返回试播链接 |
+| userId | 否 | xxxxx | MIGU视频cookie，要求两参数匹配 |
+| userToken | 否 | xxxxx | MIGU视频cookie，要求两参数匹配 |
