@@ -80,32 +80,38 @@ def handler(environ, start_response):
             lqua += ","
 
     data = getAPI(cid, hqua, userId, userToken, "h265")
-    json_outstr['VideoName'] = data["body"]["content"]["contName"]
-    json_outstr['VideoLength'] = data["body"]["content"]["duration"]
-    for i in range(len(data["body"]["urlInfos"])):
-        urlt = {"rateDesc": "", "videoCoding": "", "TrySee": "", "url": ""}
-        urlt["rateDesc"] = data["body"]["urlInfos"][i]["rateDesc"]
-        urlt["videoCoding"] = data["body"]["urlInfos"][i]["videoCoding"]
-        urlt["url"] = data["body"]["urlInfos"][i]["url"]
-        if data["body"]["urlInfos"][i]["trySeeDuration"] == "0":
-            urlt["TrySee"] = "False"
-        else:
-            urlt["TrySee"] = "True"
-        if int(data["body"]["urlInfos"][i]["rateType"]) > 4:
-            urlarr.append(urlt)
-    data = getAPI(cid, lqua, userId, userToken, "h264")
-    for i in range(len(data["body"]["urlInfos"])):
-        urlt = {"rateDesc": "", "videoCoding": "", "TrySee": "", "url": ""}
-        urlt["rateDesc"] = data["body"]["urlInfos"][i]["rateDesc"]
-        urlt["videoCoding"] = data["body"]["urlInfos"][i]["videoCoding"]
-        urlt["url"] = data["body"]["urlInfos"][i]["url"]
-        if data["body"]["urlInfos"][i]["trySeeDuration"] == "0":
-            urlt["TrySee"] = "False"
-        else:
-            urlt["TrySee"] = "True"
-        if int(data["body"]["urlInfos"][i]["rateType"]) < 5:
-            urlarr.append(urlt)
-    json_outstr['VideoUrl'] = urlarr
+    if data["code"] == "200":
+        json_outstr['VideoName'] = data["body"]["content"]["contName"]
+        json_outstr['VideoLength'] = data["body"]["content"]["duration"]
+        for i in range(len(data["body"]["urlInfos"])):
+            urlt = {"rateDesc": "", "videoCoding": "", "TrySee": "", "url": ""}
+            urlt["rateDesc"] = data["body"]["urlInfos"][i]["rateDesc"]
+            urlt["videoCoding"] = data["body"]["urlInfos"][i]["videoCoding"]
+            urlt["url"] = data["body"]["urlInfos"][i]["url"]
+            if data["body"]["urlInfos"][i]["trySeeDuration"] == "0":
+                urlt["TrySee"] = "False"
+            else:
+                urlt["TrySee"] = "True"
+            if int(data["body"]["urlInfos"][i]["rateType"]) > 4:
+                urlarr.append(urlt)
+        data = getAPI(cid, lqua, userId, userToken, "h264")
+        for i in range(len(data["body"]["urlInfos"])):
+            urlt = {"rateDesc": "", "videoCoding": "", "TrySee": "", "url": ""}
+            urlt["rateDesc"] = data["body"]["urlInfos"][i]["rateDesc"]
+            urlt["videoCoding"] = data["body"]["urlInfos"][i]["videoCoding"]
+            urlt["url"] = data["body"]["urlInfos"][i]["url"]
+            if data["body"]["urlInfos"][i]["trySeeDuration"] == "0":
+                urlt["TrySee"] = "False"
+            else:
+                urlt["TrySee"] = "True"
+            if int(data["body"]["urlInfos"][i]["rateType"]) < 5:
+                urlarr.append(urlt)
+        json_outstr['VideoUrl'] = urlarr
 
-    start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
-    return str(json_outstr)
+        start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+        return str(json_outstr)
+    else:
+        err = {"Message": "", "Desc": "接口只支持网页端可播放的视频"}
+        err["Message"] = data["message"]
+        start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+        return str(err)
