@@ -85,7 +85,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | cid | 是 | 26311295 | PPTV视频id，获取方法自行探索 |
 | qua | 否 | 3,4 | 可选视频质量，270P(0)，480P(1)，720P(2)，1080P(3)，1080P高码(4)，默认全选，英文逗号分隔 |
     
-#### 2.7 TX体育    
+#### 2.7 qqsport    
 路径：https://api.telecom.ac.cn/qqsport    
 说明：TX体育直播解析M3U8    
 示例：https://api.telecom.ac.cn/qqsprt?mid=208:2288013&qua=1    
@@ -98,7 +98,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | appid | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
 | token | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
     
-#### 2.8 MIGU视频    
+#### 2.8 migu    
 路径：https://api.telecom.ac.cn/migu    
 说明：MIGU视频解析M3U8    
 示例：https://api.telecom.ac.cn/migu?qua=2,3,4,6,8&cid=732903127    
@@ -109,3 +109,13 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | qua | 否 | 3,4 | 可选视频质量，可选范围1-10，已知540P(2)，720P(3)，1080P(4)，原画4K(6)，原画HDR(7)，超清4K(8)，默认2,3,4，大于等于1080P清晰度均需cookie，否则返回试播链接 |
 | userId | 否 | xxxxx | MIGU视频cookie，要求两参数匹配 |
 | userToken | 否 | xxxxx | MIGU视频cookie，要求两参数匹配 |
+    
+#### 2.9 youkusign    
+路径：https://api.telecom.ac.cn/youkusign    
+说明：YK视频请求参数校验算法    
+参考：http://www.manongjc.com/detail/18-wynleaueybqmufx.html    
+示例：https://api.telecom.ac.cn/youkusign (post)    
+
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| data | 是 | xxxxxx | 请求参数 |
