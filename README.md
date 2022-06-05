@@ -113,9 +113,22 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 #### 2.9 youkusign    
 路径：https://api.telecom.ac.cn/youkusign    
 说明：YK视频请求参数校验算法    
-参考：http://www.manongjc.com/detail/18-wynleaueybqmufx.html    
-示例：https://api.telecom.ac.cn/youkusign (post)    
+参考：https://blog.csdn.net/weixin_41813169/article/details/109815414    
+示例：https://api.telecom.ac.cn/youkusign    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
-| data | 是 | xxxxxx | 请求参数 |
+| data | 是 | xxxxxx | 请求参数，通过body传递 |
+    
+#### 2.10 youku    
+路径：https://api.telecom.ac.cn/youku    
+说明：YK视频解析M3U8    
+示例：https://api.telecom.ac.cn/youku?vid=XNTg2MDM3NjQzMg==&_m_h5_tk=xxx&_m_h5_tk_enc=xxx&cna=xxx&qua=hd3    
+
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| vid | 是 | XNTg2MDM3NjQzMg== | YK视频vid，v.youku.com/v_show/id_[VID].html |
+| cna | 是 | xxxxx | YK视频cookie，要求三参数匹配 |
+| _m_h5_tk | 是 | xxxxx | YK视频cookie，要求三参数匹配 |
+| _m_h5_tk_enc | 是 | xxxxx | YK视频cookie，要求三参数匹配 |
+| qua | 否 | hd2,hd3 | 可选视频质量，360P(sd)，540P(hd)，720P(hd2)，1080P(hd3)，默认全选 |
