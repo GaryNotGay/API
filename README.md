@@ -132,3 +132,8 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | _m_h5_tk | 是 | xxxxx | YK视频cookie，要求三参数匹配 |
 | _m_h5_tk_enc | 是 | xxxxx | YK视频cookie，要求三参数匹配 |
 | qua | 否 | hd2,hd3 | 可选视频质量，360P(sd)，540P(hd)，720P(hd2)，1080P(hd3)，默认全选 |
+    
+#### 2.11 ykr1    
+路径：https://api.telecom.ac.cn/ykr1    
+说明：YK视频copyrightDRM关键参数    
+示例：https://api.telecom.ac.cn/ykr1    
