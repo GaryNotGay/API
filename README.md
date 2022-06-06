@@ -7,7 +7,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 #### API：api.telecom.ac.cn   
 #### APICDN：cdn.api.telecom.ac.cn      
 #### APIDOC：doc.api.telecom.ac.cn         
-#### Github：    
+#### Github：github.com/GaryNotGay/API    
 #### Gitee：gitee.com/garynotgay/api    
 
 ## 2、开发文档    
@@ -65,75 +65,3 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | guid | 是 | 1fcb9528b79f2065c9a281a7d554edd1 | 请求参数之一 |
 | tm | 是 | 1651217559 | 10位时间戳 |
 | url | 是 | https://wetv.vip | 请求参数之一 |
-    
-#### 2.5 cmd5x    
-路径：https://api.telecom.ac.cn/cmd5x    
-说明：IQIYI视频请求参数校验算法    
-示例：https://api.telecom.ac.cn/cmd5x?parma=aXFpeWlwYXJhbQ==    
-
-| 参数 | 必选 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| parma | 是 | 10201 | dash请求参数base64格式 |
-    
-#### 2.6 PPTV    
-路径：https://api.telecom.ac.cn/pptv    
-说明：PPTV视频解析M3U8    
-示例：https://api.telecom.ac.cn/pptv?cid=26311295&qua=3,4    
-
-| 参数 | 必选 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| cid | 是 | 26311295 | PPTV视频id，获取方法自行探索 |
-| qua | 否 | 3,4 | 可选视频质量，270P(0)，480P(1)，720P(2)，1080P(3)，1080P高码(4)，默认全选，英文逗号分隔 |
-    
-#### 2.7 qqsport    
-路径：https://api.telecom.ac.cn/qqsport    
-说明：TX体育直播解析M3U8    
-示例：https://api.telecom.ac.cn/qqsprt?mid=208:2288013&qua=1    
-
-| 参数 | 必选 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| mid | 是 | 208:2288013 | TX体育直播id |
-| qua | 否 | 3,4 | 可选视频质量，270P(0)，480P(1)，720P(2)，1080P(3)，默认1080P，只可单选 |
-| openid | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
-| appid | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
-| token | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
-    
-#### 2.8 migu    
-路径：https://api.telecom.ac.cn/migu    
-说明：MIGU视频解析M3U8    
-示例：https://api.telecom.ac.cn/migu?qua=2,3,4,6,8&cid=732903127    
-
-| 参数 | 必选 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| cid | 是 | 732903127 | MIGU视频id |
-| qua | 否 | 3,4 | 可选视频质量，可选范围1-10，已知540P(2)，720P(3)，1080P(4)，原画4K(6)，原画HDR(7)，超清4K(8)，默认2,3,4，大于等于1080P清晰度均需cookie，否则返回试播链接 |
-| userId | 否 | xxxxx | MIGU视频cookie，要求两参数匹配 |
-| userToken | 否 | xxxxx | MIGU视频cookie，要求两参数匹配 |
-    
-#### 2.9 youkusign    
-路径：https://api.telecom.ac.cn/youkusign    
-说明：YK视频请求参数校验算法    
-参考：https://blog.csdn.net/weixin_41813169/article/details/109815414    
-示例：https://api.telecom.ac.cn/youkusign    
-
-| 参数 | 必选 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| data | 是 | xxxxxx | 请求参数，通过body传递 |
-    
-#### 2.10 youku    
-路径：https://api.telecom.ac.cn/youku    
-说明：YK视频解析M3U8    
-示例：https://api.telecom.ac.cn/youku?vid=XNTg2MDM3NjQzMg==&_m_h5_tk=xxx&_m_h5_tk_enc=xxx&cna=xxx&qua=hd3    
-
-| 参数 | 必选 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| vid | 是 | XNTg2MDM3NjQzMg== | YK视频vid，v.youku.com/v_show/id_[VID].html |
-| cna | 是 | xxxxx | YK视频cookie，要求三参数匹配 |
-| _m_h5_tk | 是 | xxxxx | YK视频cookie，要求三参数匹配 |
-| _m_h5_tk_enc | 是 | xxxxx | YK视频cookie，要求三参数匹配 |
-| qua | 否 | hd2,hd3 | 可选视频质量，360P(sd)，540P(hd)，720P(hd2)，1080P(hd3)，默认全选 |
-    
-#### 2.11 ykr1    
-路径：https://api.telecom.ac.cn/ykr1    
-说明：YK视频copyrightDRM关键参数    
-示例：https://api.telecom.ac.cn/ykr1    
