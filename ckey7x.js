@@ -53,13 +53,20 @@ ckey7 = function(platform_in, vid_in, std_in, test, tm_in, ver_in) {
 
 exports.handler = (req, resp, context) => {
 
-    var platform_in = req.queries["platform"]
-    var vid_in = req.queries["vid"]
-    var std_in = req.queries["sdt"]
-    var tm_in = req.queries["tm"]
-    var ver_in = req.queries["ver"]
+   try{
+        var platform_in = req.queries["platform"]
+        var vid_in = req.queries["vid"]
+        var std_in = req.queries["sdt"]
+        var tm_in = req.queries["tm"]
+        var ver_in = req.queries["ver"]
 
-    resp.setHeader("Content-Type", "text/plain");
-    resp.send(ckey7(platform_in, vid_in, std_in, "1", tm_in, ver_in))
+        var oj = {"Status":"True", "VER":"CKEY7", "KEY":ckey7(platform_in, vid_in, std_in, "1", tm_in, ver_in)};
+        resp.setHeader("Content-Type", "text/json");
+        resp.send(JSON.stringify(oj));
+        }catch(e){
+            var oj = {"Status":"False", "Message": "未知错误，请参考错误信息，定位原因，或联系作者", "Info": e};
+            resp.setHeader("Content-Type", "text/json");
+            resp.send(JSON.stringify(oj));
+          }
  
 }
