@@ -1,21 +1,27 @@
 exports.handler = (req, resp, context) => {
 
-    var params = {
-        path: req.path,
-        queries: req.queries,
-        headers: req.headers,
-        method : req.method,
-        requestURI : req.url,
-        clientIP : req.clientIP,
-    }
+    try{
+        var params = {
+            path: req.path,
+            queries: req.queries,
+            headers: req.headers,
+            method : req.method,
+            requestURI : req.url,
+            clientIP : req.clientIP,
+        }
 
-    var param = req.queries["param"]
-    var b = new Buffer(param, 'base64')
-    var s = b.toString();
-
-    resp.setHeader("Content-Type", "text/plain");
-    resp.send(cmd5x_exports.cmd5x(s));
-    
+        var param = req.queries["param"]
+        var b = new Buffer(param, 'base64')
+        var s = b.toString();
+        console.log(s);
+        var oj = {"Status":"True", "VER":"CMD5X", "KEY":cmd5x_exports.cmd5x(s)};
+        resp.setHeader("Content-Type", "text/json");
+        resp.send(JSON.stringify(oj));
+    }catch(e){
+        var oj = {"Status":"False", "Message": "未知错误，请参考错误信息，定位原因，或联系作者", "Info": e};
+        resp.setHeader("Content-Type", "text/json");
+        resp.send(JSON.stringify(oj));
+      }
 }
 
 global.document = {
