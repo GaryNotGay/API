@@ -130,43 +130,48 @@ def querydata2json(data):
 
 
 def handler(environ, start_response):
-    query_data = querydata2json(environ['QUERY_STRING'])
-    if query_data == "ERR":
-        ERR_INFO = {"ERR": "PARAMS ERROR!"}
+    try:
+        query_data = querydata2json(environ['QUERY_STRING'])
+        if query_data == "ERR":
+            ERR_INFO = {"Status":"False", "Message": "缺少必要参数，请参考接口文档，确认必要参数", "Info": "https://doc.api.telecom.ac.cn/"}
+            start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+            return json.dumps(ERR_INFO, ensure_ascii=False)
+        mid = query_data["mid"]
+        if "qua" in query_data:
+            qua = query_data["qua"]
+        else:
+            qua = "3"
+        
+        if "openid" in query_data:
+            login["openid"] = query_data["openid"]
+        if "appid" in query_data:
+            login["appid"] = query_data["appid"]
+        if "token" in query_data:
+            login["token"] = query_data["token"]
+
+
+        defnarr = ["sd", "hd", "shd", "fhd"]
+        defn = defnarr[int(qua)]
+        #mid = "208:2288013"
+        info = getLiveID(mid)
+        liveId = info[0]
+        programId = info[1]
+        teaminfo = info[2]
+        commentator = info[3]
+        m3u8 = getM3U8(defn, liveId, programId)
+
+        json_outstr = {
+            "LiveName": "",
+            "LiveCommentator": "",
+            "Url":"",
+        }
+        json_outstr['LiveName'] = teaminfo
+        json_outstr['LiveCommentator'] = commentator
+        json_outstr['Url'] = m3u8
+        print(json_outstr)
         start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
-        return str(ERR_INFO)
-    mid = query_data["mid"]
-    if "qua" in query_data:
-        qua = query_data["qua"]
-    else:
-        qua = "3"
-    
-    if "openid" in query_data:
-        login["openid"] = query_data["openid"]
-    if "appid" in query_data:
-        login["appid"] = query_data["appid"]
-    if "token" in query_data:
-        login["token"] = query_data["token"]
-
-
-    defnarr = ["sd", "hd", "shd", "fhd"]
-    defn = defnarr[int(qua)]
-    #mid = "208:2288013"
-    info = getLiveID(mid)
-    liveId = info[0]
-    programId = info[1]
-    teaminfo = info[2]
-    commentator = info[3]
-    m3u8 = getM3U8(defn, liveId, programId)
-
-    json_outstr = {
-        "LiveName": "",
-        "LiveCommentator": "",
-        "Url":"",
-    }
-    json_outstr['LiveName'] = teaminfo
-    json_outstr['LiveCommentator'] = commentator
-    json_outstr['Url'] = m3u8
-
-    start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
-    return str(json_outstr)
+        return json.dumps(json_outstr, ensure_ascii=False)
+    except Exception as e:
+        start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+        outjson = {"Status": "False", "Message": "未知错误，请参考错误信息，定位原因，或联系作者", "Info": str(e)}
+        return json.dumps(outjson, ensure_ascii=False)
