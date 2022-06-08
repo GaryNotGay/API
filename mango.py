@@ -98,39 +98,41 @@ def querydata2json(data):
 
 
 def handler(environ, start_response):
-    
-    query_data = querydata2json(environ['QUERY_STRING'])
-    if query_data == "ERR":
-        ERR_INFO = {"ERR": "PARAMS ERROR!"}
+    try:
+        query_data = querydata2json(environ['QUERY_STRING'])
+        if query_data == "ERR":
+            ERR_INFO = {"Status":"False", "Message": "缺少必要参数，请参考接口文档，确认必要参数", "Info": "https://doc.api.telecom.ac.cn/"}
+            start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+            return json.dumps(ERR_INFO, ensure_ascii=False)
+        videoid = query_data["id"]
+        videotitle = query_data["title"]
+
+        cookies = {'HDCN': '',}
+        did = getDID()
+        if "hdcn" in query_data:
+            cookies['HDCN'] = query_data["hdcn"]
+
+        timestamp = int(time.time())
+
+        infoarr = getName(videoid, videotitle, timestamp, cookies)
+        mango_videoname = infoarr[0]
+        mango_videotitle = infoarr[1]
+        mango_videolen = infoarr[2]
+
+        tk2_out = genTK2(did, timestamp)
+
+        infoarr = getTK2PM2(tk2_out, videoid, timestamp, cookies)
+        mango_pm2 = infoarr[0]
+        mango_tk2 = infoarr[1]
+
+        jumpurl = getSource(mango_tk2, mango_pm2, videoid, timestamp, cookies)
+        if "qua" in query_data:
+            qua = query_data["qua"]
+        else:
+            qua = "0,1,2,3"
+        outjson = outJSON(qua, jumpurl, cookies, mango_videolen, mango_videotitle, mango_videoname)
         start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
-        return str(ERR_INFO)
-    videoid = query_data["id"]
-    videotitle = query_data["title"]
-
-    cookies = {'HDCN': '',}
-    did = getDID()
-    if "hdcn" in query_data:
-        cookies['HDCN'] = query_data["hdcn"]
-
-    timestamp = int(time.time())
-
-    infoarr = getName(videoid, videotitle, timestamp, cookies)
-    mango_videoname = infoarr[0]
-    mango_videotitle = infoarr[1]
-    mango_videolen = infoarr[2]
-
-    tk2_out = genTK2(did, timestamp)
-
-    infoarr = getTK2PM2(tk2_out, videoid, timestamp, cookies)
-    mango_pm2 = infoarr[0]
-    mango_tk2 = infoarr[1]
-
-    jumpurl = getSource(mango_tk2, mango_pm2, videoid, timestamp, cookies)
-    if "qua" in query_data:
-        qua = query_data["qua"]
-    else:
-        qua = "0,1,2,3"
-    outjson = outJSON(qua, jumpurl, cookies, mango_videolen, mango_videotitle, mango_videoname)
-    start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
-    return str(outjson)
-
+        return json.dumps(outjson, ensure_ascii=False)
+    except Exception as e:
+        outjson = {"Status": "False", "Message": "未知错误，请参考错误信息，定位原因，或联系作者", "Info": e}
+        return json.dumps(outjson, ensure_ascii=False)
