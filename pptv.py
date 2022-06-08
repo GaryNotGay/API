@@ -57,18 +57,22 @@ def querydata2json(data):
 
 
 def handler(environ, start_response):
-    query_data = querydata2json(environ['QUERY_STRING'])
-    if query_data == "ERR":
-        ERR_INFO = {"ERR": "PARAMS ERROR!"}
-        start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
-        return str(ERR_INFO)
-    cid = query_data["cid"]
-    if "qua" in query_data:
-        qua = query_data["qua"]
-    else:
-        qua = "0,1,2,3,4"
+    try:
+        query_data = querydata2json(environ['QUERY_STRING'])
+        if query_data == "ERR":
+            ERR_INFO = {"ERR": "PARAMS ERROR!"}
+            start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+            return str(ERR_INFO)
+        cid = query_data["cid"]
+        if "qua" in query_data:
+            qua = query_data["qua"]
+        else:
+            qua = "0,1,2,3,4"
 
-    data = api_get(cid)
-    outjson = outJSON(qua, data)
-    start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
-    return str(outjson)
+        data = api_get(cid)
+        outjson = outJSON(qua, data)
+        start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+        return json.dumps(outjson, ensure_ascii=False)
+    except Exception as e:
+        outjson = {"Status": "False", "Message": "未知错误，请参考错误信息，定位原因，或联系作者", "Info": e}
+        return json.dumps(outjson, ensure_ascii=False)
