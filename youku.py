@@ -61,55 +61,67 @@ def querydata2json(data):
     return rj
 
 def handler(environ, start_response):
-    query_data = querydata2json(environ['QUERY_STRING'])
-    if query_data == "ERR":
-        ERR_INFO = {"ERR": "PARAMS ERROR!"}
-        start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
-        return str(ERR_INFO)
-    vid = query_data["vid"]
-    cna = query_data["cna"]
-    _m_h5_tk = query_data["_m_h5_tk"]
-    _m_h5_tk_enc = query_data["_m_h5_tk_enc"]
-    ckey = ''
+    try:
+        query_data = querydata2json(environ['QUERY_STRING'])
+        if query_data == "ERR":
+            ERR_INFO = {"Status":"False", "Message": "缺少必要参数，请参考接口文档，确认必要参数", "Info": "https://doc.api.telecom.ac.cn/"}
+            start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+            return json.dumps(ERR_INFO, ensure_ascii=False)
+        vid = query_data["vid"]
+        cna = "QPHiGad3KXMCAXtyybbSaCMI"
 
-    if "qua" in query_data:
-        qua = query_data["qua"]
-    else:
-        qua = "sd,hd,hd2,hd3"
-
-    data = getM3U8(vid, _m_h5_tk, _m_h5_tk_enc, cna, ckey)
-    if data["ret"][0] == "SUCCESS::调用成功":
-        json_outstr = {
-                "VideoName": "",
-                "VideoLength": "",
-                "VideoUrl":""
-            }
-        json_outstr['VideoLength'] = data["data"]["data"]["video"]["seconds"]
-        json_outstr['VideoName'] = data["data"]["data"]["video"]["title"]
-        quaarr = qua.split(",")
-        videoarr = []
-        for i in range(len(data["data"]["data"]["stream"])):
-            videot = {
-                "url": "",
-                "qua": "",
-                "drm": "",
-            }
-            if data["data"]["data"]["stream"][i]["media_type"] == "standard":
-                videot["url"] = data["data"]["data"]["stream"][i]["m3u8_url"]
-                videot["qua"] = str(data["data"]["data"]["stream"][i]["width"])+"*"+str(data["data"]["data"]["stream"][i]["height"])+"_"+data["data"]["data"]["stream"][i]["stream_type"]
-                videot["drm"] = data["data"]["data"]["stream"][i]["drm_type"]
-            if data["data"]["data"]["stream"][i]["stream_type"] != "auto" and quacheck(data["data"]["data"]["stream"][i]["stream_type"], quaarr):
-                videoarr.append(videot)
-        json_outstr['VideoUrl'] = videoarr
-
-        #print(json_outstr)
-        start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
-        return str(json_outstr)
+        if "cna" in query_data and "_m_h5_tk" in query_data and "_m_h5_tk_enc" in query_data:
+            cna = query_data["cna"]
+            _m_h5_tk = query_data["_m_h5_tk"]
+            _m_h5_tk_enc = query_data["_m_h5_tk_enc"]
+        else:
+            mh5tk = getMH5TK()
+            _m_h5_tk = mh5tk[0]
+            _m_h5_tk_enc = mh5tk[1]
         
-    else:
-        err = {"Message": "", "Desc": "非法令牌=Cookie错误，其他错误信息请联系作者"}
-        err["Message"] = data["ret"][0]
+        ckey = '140#yFMoLf3vzzW8dzo2+b0s4pN8s77be5owHTYoXMXOtmC3DVJ7A37+i/njleOMEfSw4F1Mlp1zzqdErAmggbrximPoa6h/zzrb22U3lp1xzwXiVXE/tFzx2Dc33z//EHmijDapVrMn79/QCGKQA44d/Q72lQpGncnlAH7CFZW0NXzDXUgP3fxaREF/6aC3tjqX+TLe8nXTKgWhO/pjxIIAu6/TbraKRKxndAdRSpfHruCuWVQqJ9Bv4DRWJO4KIIcRA/Br2qhnaQsF/Y8MyhmmSwwF2A916sVplbD4k59JVeqhc7dp2vQx2MxmrCLRCC6iBuaNno6jJT0OzvFUsWOwniodHFghFlszD8t2RTrfjbQGyhtY79UWVIXtXacLacQOz59DXd57S3pVwOv4Hblq/NKPt4DoCnvFKP6ru2aXtEuYpqQ+5NIQJtFQuhOFx2xK3T3kZLopUyP3pX544B1iNsAE0bHGiKL691tlv0smXYAQFSY5H5STodcqqJwm5cPs5KcroJhpSF4s0fTn49c15eqfkdTxZIrqnqiF04Sn8Y0Jd1pbOAlaWIprb38r6Bwb0SLlPKqAkVdLOr8fBObk/M8e3fRJ25PtN9ghh462G9IfR+dyPDwvMimPH+K8SBskQhMPO/pgJyo4Zi1G6hK/xJDy8MT3xPPEuwZiGqEwsMRaRSMr1xxloVCcDDIKn+kEXYwMkA/FHw9PScv0SKqloGaSLxJkn01SRm5DzUCMahT+oDQaNNfwVWBSuhPlIW9DzQ=='
 
-        #print(err)
+        if "qua" in query_data:
+            qua = query_data["qua"]
+        else:
+            qua = "sd,hd,hd2,hd3"
+
+        data = getM3U8(vid, _m_h5_tk, _m_h5_tk_enc, cna, ckey)
+       
+        if data["ret"][0] == "SUCCESS::调用成功":
+            json_outstr = {
+                    "VideoName": "",
+                    "VideoLength": "",
+                    "VideoUrl":""
+                }
+            json_outstr['VideoLength'] = data["data"]["data"]["video"]["seconds"]
+            json_outstr['VideoName'] = data["data"]["data"]["video"]["title"]
+            quaarr = qua.split(",")
+            videoarr = []
+            for i in range(len(data["data"]["data"]["stream"])):
+                videot = {
+                    "url": "",
+                    "qua": "",
+                    "drm": "",
+                }
+                if data["data"]["data"]["stream"][i]["media_type"] == "standard":
+                    videot["url"] = data["data"]["data"]["stream"][i]["m3u8_url"]
+                    videot["qua"] = str(data["data"]["data"]["stream"][i]["width"])+"*"+str(data["data"]["data"]["stream"][i]["height"])+"_"+data["data"]["data"]["stream"][i]["stream_type"]
+                    videot["drm"] = data["data"]["data"]["stream"][i]["drm_type"]
+                if data["data"]["data"]["stream"][i]["stream_type"] != "auto" and quacheck(data["data"]["data"]["stream"][i]["stream_type"], quaarr):
+                    videoarr.append(videot)
+            json_outstr['VideoUrl'] = videoarr
+
+            #print(json_outstr)
+            start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+            return json.dumps(json_outstr, ensure_ascii=False)
+            
+        else:
+            outjson = {"Status": "False", "Message": "非法令牌=Cookie错误，其他错误信息请联系作者", "Info": ""}
+            outjson["Info"] = data["ret"][0]
+            start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+            return json.dumps(outjson, ensure_ascii=False)
+    except Exception as e:
         start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
-        return str(err)
+        outjson = {"Status": "False", "Message": "未知错误，请参考错误信息，定位原因，或联系作者", "Info": str(e)}
+        return json.dumps(outjson, ensure_ascii=False)
