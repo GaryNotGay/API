@@ -167,11 +167,33 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | _m_h5_tk_enc | 否 | xxxxx | YK视频cookie，要求三参数匹配 |
 | qua | 否 | hd2,hd3 | 可选视频质量，360P(sd)，540P(hd)，720P(hd2)，1080P(hd3)，默认全选 |
     
-#### 2.10 ykr1    
+#### 2.11 ykr1    
 请求路径：https://api.telecom.ac.cn/ykr1    
 请求方式：GET    
 正确返回：{"Status":"True", "VER":"YKR1", "R1":"",  "encryptR":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：YK视频copyrightDRM关键参数    
 请求示例：https://api.telecom.ac.cn/ykr1    
+    
+#### 2.12 paper    
+请求路径：https://api.telecom.ac.cn/paper    
+请求方式：GET    
+正确返回：{"Status":"True", "PaperName": "", "PaperUrl": ""}    
+错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：解析多种报刊链接    
+请求示例：https://api.telecom.ac.cn/paper?ptype=1&pid=20220608    
 
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| ptype | 是 | 1 | RMRB(1)，BJYB(2)，TTZB(3)，DLTX(4) |
+| pid | 是 | 1/427369/MzAxMzAy | ptype为1/2时，pid应为八位数字日期，ptype为3/4时，为阅读界面的id |
+| puser | 否 | xxxxx | ptype为3/4时，需要具有阅读权限的cookie，ptype=3，puser=userId，ptype=4，puser=uid |
+| pcookie | 否 | xxxxx | ptype为3/4时，需要具有阅读权限的cookie，ptype=3，pcookie=SESSION，pcookie=auth |
+    
+## 3、注意事项    
+    
+##### 项目仅为个人学习，请勿用于非法用途    
+    
+##### 如有侵权，非常抱歉，请联系作者删除    
+    
+##### 接口仅为自用测试，不保证任何可用性    
