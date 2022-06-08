@@ -1596,10 +1596,16 @@
 }();
 
 exports.handler = (req, resp, context) => {
-    var R1 = _sce_r_skjhfnck();
-    var encryptR = _sce_lgtcaygl(R1);
+    try{
+        var R1 = _sce_r_skjhfnck();
+        var encryptR = _sce_lgtcaygl(R1);
 
-    var j = {"R1":R1, "encryptR":encryptR};
-    resp.setHeader("Content-Type", "text/plain");
-    resp.send(JSON.stringify(j));
+        var j = {"Status":"True", "VER":"YKR1", "R1":R1, "encryptR":encryptR};
+        resp.setHeader("Content-Type", "text/plain");
+        resp.send(JSON.stringify(j));
+    }catch(e){
+        var oj = {"Status":"False", "Message": "未知错误，请参考错误信息，定位原因，或联系作者", "Info": e};
+        resp.setHeader("Content-Type", "text/json");
+        resp.send(JSON.stringify(oj));
+    }
 }
