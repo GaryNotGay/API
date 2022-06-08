@@ -189,4 +189,11 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | pid | 是 | 1/427369/MzAxMzAy | ptype为1/2时，pid应为八位数字日期，ptype为3/4时，为阅读界面的id |
 | puser | 否 | xxxxx | ptype为3/4时，需要具有阅读权限的cookie，ptype=3，puser=userId，ptype=4，puser=uid |
 | pcookie | 否 | xxxxx | ptype为3/4时，需要具有阅读权限的cookie，ptype=3，pcookie=SESSION，pcookie=auth |
-
+    
+## 3、注意事项    
+    
+##### 项目仅为个人学习，请勿用于非法用途    
+    
+##### 如有侵权，非常抱歉，请联系作者删除    
+    
+##### 接口仅为自用测试，不保证任何可用性    
