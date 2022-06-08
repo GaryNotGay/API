@@ -140,7 +140,13 @@ function sign(e) {
 }
 
 exports.handler = (req, resp, context) => {
-        
-    resp.setHeader("Content-Type", "text/plain");
-    resp.send(sign(req.body));
+    try{
+        var oj = {"Status":"True", "VER":"YOUKU", "KEY":sign(req.body)};
+        resp.setHeader("Content-Type", "text/json");
+        resp.send(JSON.stringify(oj));
+    }catch(e){
+        var oj = {"Status":"False", "Message": "未知错误，请参考错误信息，定位原因，或联系作者", "Info": e};
+        resp.setHeader("Content-Type", "text/json");
+        resp.send(JSON.stringify(oj));
+    }
 }
