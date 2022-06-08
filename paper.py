@@ -280,7 +280,7 @@ class ZQB:
         mergePDF(len(urlArr), "zqb_", path, getDate())
 
 def getAuth(name, tm, rand, uid):
-    key = "Li@oss.telecom.ac.cn1"
+    key = ""
     m = hashlib.md5()
     #print(f"/{name}-{tm}-{rand}-{uid}-{key}")
     m.update(f"/{name}-{tm}-{rand}-{uid}-{key}".encode("utf-8"))
