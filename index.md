@@ -190,6 +190,20 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | puser | 否 | xxxxx | ptype为3/4时，需要具有阅读权限的cookie，ptype=3，puser=userId，ptype=4，puser=uid |
 | pcookie | 否 | xxxxx | ptype为3/4时，需要具有阅读权限的cookie，ptype=3，pcookie=SESSION，pcookie=auth |
     
+#### 2.13 wetvsub    
+请求路径：https://api.telecom.ac.cn/wetvsub    
+请求方式：GET    
+正确返回：{"Status":"True", "VideoName":"", "VideoSub":"[{"url":"", "lang":"", "name":""}]", "[VideoSubZip]":""}    
+错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：WETV多语字幕解析    
+请求示例：https://api.telecom.ac.cn/wetvsub?vid=i0037ryjlwn&zip=1&lang=zh    
+
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| vid | 是 | i0037ryjlwn | WETV视频id |
+| zip | 否 | 1 | 可选是否打包为zip文件，1为是，其他为否，默认为否，选择是时返回字段VideoSubZip |
+| lang | 否 | zh | 可选zip文件命名语言，zh为中文，en为英文，默认为英文，仅在zip=1时生效 |
+    
 ## 3、注意事项    
     
 ##### 项目仅为个人学习，请勿用于非法用途    
