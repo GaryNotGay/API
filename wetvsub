@@ -1,0 +1,158 @@
+# -*- coding: utf8 -*-
+import os
+import time
+import json
+import oss2
+import random
+import hashlib
+import zipfile
+import requests
+
+def getUrl(vid):
+    tm = getTime()
+    ckey = getCkey(vid, tm)
+    url = "https://play.wetv.vip/getvinfo?charge=0&defaultfmt=auto&otype=json&guid=6eb81823f6e496f9a87c88fbe977dee0&flowid=69368333114e680b4e70fb54cdd6cc26_4830201&platform=4830201&sdtfrom=1002&defnpayver=0&appVer=3.5.57&sphttps=1&tm=" + str(tm) + "&spwm=4&vid=" + str(vid) + "&defn=&fhdswitch=0&show1080p=0&isHLS=1&dtype=3&sphls=2&spgzip=1&dlver=2&drm=32&spau=1&spaudio=15&spsrt=1&spvideo=16&lang_code=1491963&country_code=153505&defsrc=1&fp2p=1&spadseg=1&encryptVer=8.1&cKey=" + str(ckey)
+    #print(url)
+    res = requests.get(url).text
+    start = len("QZOutputJson=")
+    urlinfo = json.loads(res[start:-1])
+    urlarr = []
+    for i in range(len(urlinfo["sfl"]["fi"])):
+        urlt = {
+            "url": urlinfo["sfl"]["fi"][i]["url"],
+            "lang": urlinfo["sfl"]["fi"][i]["lang"],
+            "name": urlinfo["sfl"]["fi"][i]["name"],
+        }
+        urlarr.append(urlt)
+    cname = urlinfo["vl"]["vi"][0]["ti"]
+    return urlarr, cname
+    #return urlinfo["sfl"]["fi"]
+
+def getTime():
+    tm = str(int(time.time()))
+    return tm
+
+def getCkey(vid, tm):
+    url = f"https://api.telecom.ac.cn/ckey81?vid={vid}&time={tm}&guid=6eb81823f6e496f9a87c88fbe977dee0&platform=4830201&url=https://wetv.vip"
+    res = requests.get(url).content
+    rj = json.loads(res)
+    return rj["KEY"]
+
+def srtDown(urlinfo, type, dir):
+    urlarr = urlinfo[0]
+    os.mkdir(f"/tmp/{dir}")
+    for i in range(len(urlarr)):
+        if type == "en":
+            name = dir + "-" + urlarr[i]["lang"]
+        else:
+            name = dir + "-" +  urlarr[i]["name"]
+        url = urlarr[i]["url"]
+        req = requests.get(url)
+        with open(f"/tmp/{dir}/{name}.srt", "wb") as f:
+            f.write(req.content)
+        f.close()
+
+def zipSub(dir):
+    z = zipfile.ZipFile(f'/tmp/{dir}.zip', 'w', zipfile.ZIP_DEFLATED)
+    startdir = f"/tmp/{dir}"
+    for dirpath, dirnames, filenames in os.walk(startdir):
+        for filename in filenames:
+            z.write(os.path.join(dirpath, filename), os.path.join(dir, filename))
+    z.close()
+
+def getRandom():
+    s = ""
+    for i in  range(32):
+        s += random.choice('abcdefghijklmnopqrstuvwxyz1234567890')
+    return s
+
+def getAuth(name, tm, rand, uid):
+    key = ""
+    m = hashlib.md5()
+    #print(f"/{name}-{tm}-{rand}-{uid}-{key}")
+    m.update(f"/{name}-{tm}-{rand}-{uid}-{key}".encode("utf-8"))
+    return m.hexdigest()
+
+def up2OSS(rname, name):
+    auth = oss2.Auth('', '')
+    bucket = oss2.Bucket(auth, '', '')
+    bucket.put_object_from_file(rname, f'/tmp/{name}.zip')
+    return bucket.object_exists(rname)
+
+def getURL(name, ip):
+    url = "https://oss.telecom.ac.cn/"
+    tm = str(int(time.time()) + 3600)
+    rand = getRandom()
+    #ip = environ['REMOTE_ADDR']
+    uid = hashlib.md5((ip+tm).encode("utf-8")).hexdigest()
+    auth = getAuth(name, tm, rand, uid)
+    finalurl = f"{url}{name}?auth_key={tm}-{rand}-{uid}-{auth}"
+    #print(finalurl)
+    return finalurl
+
+def querydata2json(data):
+    MUST = ["vid"]
+    rj = {}
+    da = data.split('&')
+    for i in range(len(da)):
+        daa = da[i].split("=")
+        rj[daa[0]] = daa[1]
+    for key in MUST:
+        if key not in rj:
+            return "ERR"
+    return rj
+
+def handler(environ, start_response):
+    try:
+        query_data = querydata2json(environ['QUERY_STRING'])
+        if query_data == "ERR":
+                ERR_INFO = {"Status":"False", "Message": "缺少必要参数，请参考接口文档，确认必要参数", "Info": "https://doc.api.telecom.ac.cn/"}
+                start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+                return json.dumps(ERR_INFO, ensure_ascii=False)
+        vid = query_data["vid"]
+
+        if "zip" in query_data:
+                zip = query_data["zip"]
+        else:
+            zip = "0"
+        if "lang" in query_data:
+                lang = query_data["lang"]
+        else:
+            lang = "en"
+
+        urlinfo = getUrl(vid)
+        urlarr = urlinfo[0]
+        name = urlinfo[1]
+        if zip == "1":
+            filetype = ".zip"
+            rname = getRandom().upper()[0:16] + filetype
+            if lang == "zh":
+                srtDown(urlinfo, "zh", name)
+                zipSub(name)
+                if up2OSS(rname, name):
+                    url = getURL(rname, environ['REMOTE_ADDR'])
+            else:
+                srtDown(urlinfo, "en", vid)
+                zipSub(vid)
+                if up2OSS(rname, vid):
+                    url = getURL(rname, environ['REMOTE_ADDR'])
+            json_outstr = {
+                "Status": " True",
+                "VideoName": name,
+                "VideoSub": urlarr,
+                "VideoSubZip": url,
+            }
+        else:
+            json_outstr = {
+                "Status": " True",
+                "VideoName": name,
+                "VideoSub": urlarr,
+            }
+        start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+        return json.dumps(json_outstr, ensure_ascii=False)
+
+        
+    except Exception as r:
+        outjson = {"Status": "False", "Message": "未知错误，请参考错误信息，定位原因，或联系作者", "Info": str(r)}
+        start_response('200 OK', [('Content-type', 'application/json; charset=utf-8'), ('Access-Control-Allow-Origin', '*')])
+        return json.dumps(outjson, ensure_ascii=False)
