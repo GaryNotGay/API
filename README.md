@@ -204,6 +204,24 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | zip | 否 | 1 | 可选是否打包为zip文件，1为是，其他为否，默认为否，选择是时返回字段VideoSubZip |
 | lang | 否 | zh | 可选zip文件命名语言，zh为中文，en为英文，默认为英文，仅在zip=1时生效 |
     
+#### 2.14 ximalaya    
+请求路径：https://api.telecom.ac.cn/ximalaya    
+请求方式：GET    
+正确返回：{"Status":"True", "UUID":"", "AudioName":"", "AudioLen":"", "AudioUrls":"[{"type":"", "url":""}]"}    
+正确返回：{"Status":"True", "UUID":"", "AlbumName":"", "TrackTotalNum":"", "AlbumUrls":"[{"index":"", AudioName":"", "AudioLen":"", "AudioUrls":"[{"type":"", "url":""}]"}]"}    
+错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：ximalaya音频解析    
+请求示例：https://api.telecom.ac.cn/ximalaya?all=0&trackid=135045322&qua=0    
+请求示例：https://api.telecom.ac.cn/ximalaya?all=1&albumid=30510905&qua=0    
+
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| isall| 是 | 1 | 为1时表示全集，其他表示单集 |
+| trackid | 否 | 135045322 | 音频单轨id，isall不为1时必选|
+| albumid | 否 | 510905 | 音频专辑id，isall为1时必选 |
+| toekn | 否 | dG9rZW4= | 网页cookie[1&_token]，base64加密 |
+| qua | 否 | 1,2 | 可选音频质量，M4A_64(0), MP3_64(1), M4A_24(2), MP3_32(3), AAC_24(4)，默认全选 |
+
 ## 3、注意事项    
     
 ##### 项目仅为个人学习，请勿用于非法用途    
