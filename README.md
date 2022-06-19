@@ -88,11 +88,11 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "VER":"CMD5X", "KEY":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：IQIYI视频请求参数校验算法    
-请求示例：https://api.telecom.ac.cn/cmd5x?parma=aXFpeWlwYXJhbQ==    
+请求示例：https://api.telecom.ac.cn/cmd5x?param=aXFpeWlwYXJhbQ==    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
-| parma | 是 | iqiyiparam | dash请求参数base64格式 |
+| param | 是 | iqiyiparam | dash请求参数base64格式 |
     
 #### 2.6 PPTV    
 请求路径：https://api.telecom.ac.cn/pptv    
