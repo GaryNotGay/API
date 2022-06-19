@@ -235,6 +235,20 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | coverid | 是 | mzc0020072xuxyu | TX视频coverid |
 | toekn | 否 | dG9rZW4= | 网页cookie，base64加密，标准格式{"main_login":"","vqq_openid":"","vqq_appid":"","vqq_access_token":"","vqq_vuserid":"","vqq_vusession":""} |
 | qua | 否 | 1,2 | 可选视频质量，270P(0), 540P(1), 720P(2), 1080P(3)，默认全选 |
+    
+#### 2.15 iqiyi    
+请求路径：https://api.telecom.ac.cn/iqiyi    
+请求方式：GET    
+正确返回：{"Status":"True", "UUID":"", "VideoName":"", "VideoLen":"", "360P/540P/720P/1080P":""}    
+错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：IQIYI视频解析    
+请求示例：https://api.telecom.ac.cn/iqiyi?id=1ezb353qy5c&qua=3    
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| id| 是 | 1ezb353qy5c | IQIYI视频网页id，v_xxxxxxxxxxx |
+| p1 | 否 | xxxx | IQIYI视频cookie，P1和P3相匹配 |
+| p3 | 否 | xxxx | IQIYI视频cookie，P1和P3相匹配 |
+| qua | 否 | 1,2 | 可选视频质量，360P(0), 540P(1), 720P(2), 1080P(3)，默认全选 |
 
 ## 3、注意事项    
     
