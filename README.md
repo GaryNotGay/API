@@ -249,6 +249,19 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | p1 | 否 | xxxx | IQIYI视频cookie，P1和P3相匹配 |
 | p3 | 否 | xxxx | IQIYI视频cookie，P1和P3相匹配 |
 | qua | 否 | 1,2 | 可选视频质量，360P(0), 540P(1), 720P(2), 1080P(3)，默认全选 |
+    
+#### 2.16 oneword    
+请求路径：https://api.telecom.ac.cn/oneword    
+请求方式：GET    
+正确返回：{"Status":"True", "UUID":"", "ID": "", "hitokoto": "", "type": "", "from": "", "Origin": "https://hitokoto.cn/"}    
+错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：一言·闪光一句    
+代码参考：https://hitokoto.cn/    
+请求示例：https://api.telecom.ac.cn/oneword?id=1111    
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| id | 否 | 1111 | 一言数据库句子ID，可指定返回该句子，默认随机 |
+| typeid | 否 | a | 一言数据库类型ID，可指定返回该类型句子，默认随机 |
 
 ## 3、注意事项    
     
