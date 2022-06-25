@@ -229,6 +229,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：TX视频解析    
 请求示例：https://api.telecom.ac.cn/qq?vid=h0043gj0gds&coverid=mzc0020072xuxyu&qua=3    
+
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
 | vid| 是 | h0043gj0gds | TX视频vid |
@@ -243,6 +244,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：IQIYI视频解析    
 请求示例：https://api.telecom.ac.cn/iqiyi?id=1ezb353qy5c&qua=3    
+
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
 | id| 是 | 1ezb353qy5c | IQIYI视频网页id，v_xxxxxxxxxxx |
@@ -258,6 +260,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 接口说明：一言·闪光一句    
 代码参考：https://hitokoto.cn/    
 请求示例：https://api.telecom.ac.cn/oneword?id=1111    
+
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
 | id | 否 | 1111 | 一言数据库句子ID，可指定返回该句子，默认随机 |
@@ -270,6 +273,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：YK自研DRM三参数生成KEY    
 请求示例：https://api.telecom.ac.cn/ykdrm?param=MSwxLDE=    
+
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
 | param | 是 | MSwxLDE= | R1,encryptR_server,copyright_key base64编码 |
@@ -281,6 +285,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：TX体育回放跳转TX视频    
 请求示例：https://api.telecom.ac.cn/qqsportreplay?mid=100002:20244584    
+
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
 | mid | 是 | 100002:20244584 | TX体育mid |
