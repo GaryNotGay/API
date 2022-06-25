@@ -262,7 +262,29 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | --- | --- | --- | --- |
 | id | 否 | 1111 | 一言数据库句子ID，可指定返回该句子，默认随机 |
 | typeid | 否 | a | 一言数据库类型ID，可指定返回该类型句子，默认随机 |
-
+    
+#### 2.17 ykdrm    
+请求路径：https://api.telecom.ac.cn/ykdrm    
+请求方式：GET    
+正确返回：{"Status":"True","VER":"YKDRM","KEY":{"HEX":"","BASE64":""}}    
+错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：YK自研DRM三参数生成KEY    
+请求示例：https://api.telecom.ac.cn/ykdrm?param=MSwxLDE=    
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| param | 是 | MSwxLDE= | R1,encryptR_server,copyright_key base64编码 |
+    
+#### 2.18 qqsportreplay    
+请求路径：https://api.telecom.ac.cn/qqsportreplay    
+请求方式：GET    
+正确返回：https://v.qq.com/x/cover/xxxxx.html    
+错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：TX体育回放跳转TX视频    
+请求示例：https://api.telecom.ac.cn/qqsportreplay?mid=100002:20244584    
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| mid | 是 | 100002:20244584 | TX体育mid |
+    
 ## 3、注意事项    
     
 ##### 项目仅为个人学习，请勿用于非法用途    
