@@ -88,11 +88,11 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "VER":"CMD5X", "KEY":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：IQIYI视频请求参数校验算法    
-请求示例：https://api.telecom.ac.cn/cmd5x?parma=aXFpeWlwYXJhbQ==    
+请求示例：https://api.telecom.ac.cn/cmd5x?param=aXFpeWlwYXJhbQ==    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
-| parma | 是 | iqiyiparam | dash请求参数base64格式 |
+| param | 是 | iqiyiparam | dash请求参数base64格式 |
     
 #### 2.6 PPTV    
 请求路径：https://api.telecom.ac.cn/pptv    
@@ -235,7 +235,56 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | coverid | 是 | mzc0020072xuxyu | TX视频coverid |
 | toekn | 否 | dG9rZW4= | 网页cookie，base64加密，标准格式{"main_login":"","vqq_openid":"","vqq_appid":"","vqq_access_token":"","vqq_vuserid":"","vqq_vusession":""} |
 | qua | 否 | 1,2 | 可选视频质量，270P(0), 540P(1), 720P(2), 1080P(3)，默认全选 |
-
+    
+#### 2.15 iqiyi    
+请求路径：https://api.telecom.ac.cn/iqiyi    
+请求方式：GET    
+正确返回：{"Status":"True", "UUID":"", "VideoName":"", "VideoLen":"", "360P/540P/720P/1080P":""}    
+错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：IQIYI视频解析    
+请求示例：https://api.telecom.ac.cn/iqiyi?id=1ezb353qy5c&qua=3    
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| id| 是 | 1ezb353qy5c | IQIYI视频网页id，v_xxxxxxxxxxx |
+| p1 | 否 | xxxx | IQIYI视频cookie，P1和P3相匹配 |
+| p3 | 否 | xxxx | IQIYI视频cookie，P1和P3相匹配 |
+| qua | 否 | 1,2 | 可选视频质量，360P(0), 540P(1), 720P(2), 1080P(3)，默认全选 |
+    
+#### 2.16 oneword    
+请求路径：https://api.telecom.ac.cn/oneword    
+请求方式：GET    
+正确返回：{"Status":"True", "UUID":"", "ID": "", "hitokoto": "", "type": "", "from": "", "Origin": "https://hitokoto.cn/"}    
+错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：一言·闪光一句    
+代码参考：https://hitokoto.cn/    
+请求示例：https://api.telecom.ac.cn/oneword?id=1111    
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| id | 否 | 1111 | 一言数据库句子ID，可指定返回该句子，默认随机 |
+| typeid | 否 | a | 一言数据库类型ID，可指定返回该类型句子，默认随机 |
+    
+#### 2.17 ykdrm    
+请求路径：https://api.telecom.ac.cn/ykdrm    
+请求方式：GET    
+正确返回：{"Status":"True","VER":"YKDRM","KEY":{"HEX":"","BASE64":""}}    
+错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：YK自研DRM三参数生成KEY    
+请求示例：https://api.telecom.ac.cn/ykdrm?param=MSwxLDE=    
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| param | 是 | MSwxLDE= | R1,encryptR_server,copyright_key base64编码 |
+    
+#### 2.18 qqsportreplay    
+请求路径：https://api.telecom.ac.cn/qqsportreplay    
+请求方式：GET    
+正确返回：https://v.qq.com/x/cover/xxxxx.html    
+错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：TX体育回放跳转TX视频    
+请求示例：https://api.telecom.ac.cn/qqsportreplay?mid=100002:20244584    
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| mid | 是 | 100002:20244584 | TX体育mid |
+    
 ## 3、注意事项    
     
 ##### 项目仅为个人学习，请勿用于非法用途    
