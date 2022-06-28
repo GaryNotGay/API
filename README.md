@@ -290,6 +290,18 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | --- | --- | --- | --- |
 | mid | 是 | 100002:20244584 | TX体育mid |
     
+#### 2.19 qifa    
+请求路径：https://api.telecom.ac.cn/qifa    
+请求方式：GET    
+正确返回：{"Status": "True", "UUID": "", 'AudioName':"", 'AudioLen':"", 'AudioUrl':"", 'M4AUrl':""}    
+错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
+接口说明：DD-APP罗胖精选课程    
+请求示例：https://api.telecom.ac.cn/qifa?date=20220628    
+
+| 参数 | 必选 | 示例 | 说明 |
+| --- | --- | --- | --- |
+| data | 是 | 20220628 | 8位数字日期，仅支持近7日音频回放 |  
+    
 ## 3、注意事项    
     
 ##### 项目仅为个人学习，请勿用于非法用途    
