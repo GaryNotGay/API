@@ -228,7 +228,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "UUID":"", "VideoName":"", "VideoLen":"", "270P/540P/720P/1080P":""}    
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：TX视频解析    
-请求示例：https://api.telecom.ac.cn/qq?vid=h0043gj0gds&coverid=mzc0020072xuxyu&qua=3    
+请求示例：https://api.telecom.ac.cn/qq?vid=n0046ht5pn8&coverid=mzc002003rpvd4j&qua=3         
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
