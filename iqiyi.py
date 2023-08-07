@@ -7,6 +7,7 @@ import hashlib
 import base64
 import requests
 import urllib.parse
+from urllib.parse import urlencode
 
 def md5(s):
     return hashlib.md5(s.encode('utf8')).hexdigest()
@@ -46,7 +47,7 @@ def getUrl(tvid, vid, bid, P1, P3):
     #tvid = '2922791537225900'
     #bid = '600' 200--360P 300--540P 500--720P 600--1080P
     #vid = '0d753a6b6ee8b6d8b96505a5fec60d1e'
-    src = '01010031010000000000' # static
+
     '''
     salt h2l6suw16pbtikmotf0j79cej4n8uw13
         01010031010000000000
@@ -60,39 +61,48 @@ def getUrl(tvid, vid, bid, P1, P3):
         02020031010000000000
         02020031010010000000
     '''
-    vt = '0' # static
-    rs = '1' # static
-    uid = P3
-    ori = 'pcw' # static
-    ps = '0' # static or 0
     tm = getTM()
-    qd_v = '2' # static or 2
-    k_uid = '06620b78f2d7f96b516c5b55a20d853b'
-    pt = '0'  # static
-    d = '0'  # static
-    authKey = md5("d41d8cd98f00b204e9800998ecf8427e"+tm+tvid)
-    k_tag = '1'  # static
-    ost = '0' # static
-    ppt = '0'  # static
-    dfp = 'a0bc5541cebb2a45fba3d2a345595bcb9a5fd9ba71ff9606fd5a13bd92de5d3ace' # Cookie
-    #dfp = ''
-    bop = '{"version":"10.0","dfp":"' + dfp + '"}'
-    locale = 'zh_cn' # static
-    prio = '%7B%22ff%22%3A%22f4v%22%2C%22code%22%3A2%7D' # {"ff":"f4v","code":2}
-    k_ft1 = '706436220846084'
-    k_ft4 = '1162183859249156'
-    k_ft5 = '1' # static
-    pck = P1
-    k_err_retries = '0' # static or 0
-    ut = '1' # static or 0
-    up = ''
-    qdy = 'a'
-    qds = '0'
-
-    url = 'tvid='+tvid+'&bid='+bid+'&vid='+vid+'&src='+src+'&vt='+vt+'&rs='+rs+'&uid='+uid+'&ori='+ori+'&ps='+ps+'&k_uid='+k_uid+'&pt='+pt+'&d='+d+'&s=&lid=&cf=&ct=&authKey='+authKey+'&k_tag='+k_tag+'&ost='+ost+'&ppt='+ppt+'&dfp='+dfp+'&locale='+locale+'&prio='+prio+'&pck='+pck+'&k_err_retries='+k_err_retries+'&up=&qd_v='+qd_v+'&tm='+tm+'&qdy='+qdy+'&qds='+qds+'&k_ft1='+k_ft1+'&k_ft4='+k_ft4+'&k_ft5='+k_ft5+'&bop='+urllib.parse.quote(bop)+'&ut='+ut
+    p = {
+        "tvid": tvid,
+        "bid": bid,
+        "vid": vid,
+        "src": '01010031010000000000',  # static
+        "vt": "0",
+        "rs": "1",
+        "uid": P3,
+        "ori": "pcw",
+        "ps": "1",
+        "k_uid": "e89fb483dd7c295c3e2936e346e6478d",
+        "pt": "0",
+        "d": "0",
+        "s": "",
+        "lid": "",
+        "cf": "",
+        "ct": "",
+        "authKey": md5("d41d8cd98f00b204e9800998ecf8427e"+tm+tvid),
+        "k_tag": "1",
+        "dfp": "a025adf70a1b774965a340684e669dfd901a982f8adbb62e8c570699b398ac70b7",
+        "locale": "zh_cn",
+        "pck": P1,
+        "k_err_retries": "0",
+        "up": "",
+        "sr": "1",
+        "qd_v": "5",
+        "tm": tm,
+        "qdy": "u",
+        "qds": "0",
+        "k_ft1": "706436220846084",
+        "k_ft4": "1161084347621396",
+        "k_ft5": "134217729",
+        "k_ft7": "4",
+        "bop": "%7B%22version%22%3A%2210.0%22%2C%22dfp%22%3A%22a025adf70a1b774965a340684e669dfd901a982f8adbb62e8c570699b398ac70b7%22%2C%22b_ft1%22%3A8%7D", #{"version": "10.0", "dfp": "a025adf70a1b774965a340684e669dfd901a982f8adbb62e8c570699b398ac70b7", "b_ft1": 8}
+        "ut": "1",
+    }
+    url = urlencode(p)
     vf = getVF("/dash?"+url)
     finalurl = baseurl + url + '&vf=' + vf
     return finalurl
+
 
 def getM3U8(url, bid):
     response = requests.get(url)
