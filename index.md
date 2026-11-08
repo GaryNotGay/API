@@ -6,16 +6,15 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
     
 ## 1、接口地址 & 代码开源     
     
-#### API：https://api.telecom.ac.cn/    
-#### APICDN：https://cdn.api.telecom.ac.cn/     
-#### APIDOC：https://doc.api.telecom.ac.cn/     
+#### API：https://api.lijishi.com/    
+#### APIDOC：https://doc.lijishi.com/     
 #### Github：https://github.com/GaryNotGay/API    
 #### Gitee：https://gitee.com/garynotgay/api    
     
 ## 2、开发文档    
     
 #### 2.1 MangoTV    
-请求路径：https://api.telecom.ac.cn/mango    
+请求路径：https://api.lijishi.com/mango    
 请求方式：GET    
 正确返回：{"Status":"True", "VideoName": "", "VideoTitle": "", "VideoLength": "", "标清/高清/超清/蓝光": ""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -30,7 +29,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | hdcn | 否 | xxxxxxxxxxxxxxxxxx-xxxxxxxxx | 从WEB中获取，携带此参数可获取会员视频及1080P清晰度，默认为空 |
     
 #### 2.2 Ckey7x    
-请求路径：https://api.telecom.ac.cn/ckey7x    
+请求路径：https://api.lijishi.com/ckey7x    
 请求方式：GET    
 正确返回：{"Status":"True", "VER":"CKEY7", "KEY":""}    
 错误返回{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -47,7 +46,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | ver | 是 | 7.1 | 7.x，其中x为周几 |
     
 #### 2.3 Ckey81    
-请求路径：https://api.telecom.ac.cn/ckey81    
+请求路径：https://api.lijishi.com/ckey81    
 请求方式：GET    
 正确返回：{"Status":"True", "VER":"CKEY8", "KEY":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -65,7 +64,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | url | 是 | https://wetv.vip | 请求参数之一 |
     
 #### 2.4 Ckey91        
-请求路径：https://api.telecom.ac.cn/ckey91    
+请求路径：https://api.lijishi.com/ckey91    
 请求方式：GET    
 正确返回：{"Status":"True", "VER":"CKEY9", "KEY":"" , "navigator":{"userAgent":"","appCodeName":"","appName":"","platform":""}}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -83,7 +82,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | url | 是 | https://wetv.vip | 请求参数之一 |
     
 #### 2.5 cmd5x    
-请求路径：https://api.telecom.ac.cn/cmd5x    
+请求路径：https://api.lijishi.com/cmd5x    
 请求方式：GET    
 正确返回：{"Status":"True", "VER":"CMD5X", "KEY":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -95,7 +94,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | param | 是 | iqiyiparam | dash请求参数base64格式 |
     
 #### 2.6 PPTV    
-请求路径：https://api.telecom.ac.cn/pptv    
+请求路径：https://api.lijishi.com/pptv    
 请求方式：GET    
 正确返回：{"Status":"True", "VideoName":"", "VideoLength":"", "[width*high]": ""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -108,7 +107,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | qua | 否 | 3,4 | 可选视频质量，270P(0)，480P(1)，720P(2)，1080P(3)，1080P高码(4)，默认全选，英文逗号分隔 |
     
 #### 2.7 qqsport    
-请求路径：https://api.telecom.ac.cn/qqsport    
+请求路径：https://api.lijishi.com/qqsport    
 请求方式：GET    
 正确返回：{"Status":"True", "LiveName":"", "LiveCommentator":"", "Url": ""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -124,7 +123,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | token | 否 | xxxxx | TX体育cookie，要求三参数匹配 |
     
 #### 2.8 migu    
-请求路径：https://api.telecom.ac.cn/migu    
+请求路径：https://api.lijishi.com/migu    
 请求方式：GET    
 正确返回：{"Status":"True", "VideoName":"", "VideoLength":"", "VideoUrl": "[{"TrySee":"", "rateDesc":"", "url":"", "videoCoding":""}]"}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -139,7 +138,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | userToken | 否 | xxxxx | MIGU视频cookie，要求两参数匹配 |
     
 #### 2.9 yksign    
-请求路径：https://api.telecom.ac.cn/yksign    
+请求路径：https://api.lijishi.com/yksign    
 请求方式：GET    
 正确返回：{"Status":"True", "VER":"YOUKU", "KEY":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -152,7 +151,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | data | 是 | xxxxxx | 请求参数，通过body传递 |
         
 #### 2.10 youku    
-请求路径：https://api.telecom.ac.cn/youku    
+请求路径：https://api.lijishi.com/youku    
 请求方式：GET    
 正确返回：{"Status":"True", "VideoName":"", "VideoLength":"", "VideoUrl": "[{"qua":"", "url":"", "drm":""}]"}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -168,7 +167,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | qua | 否 | hd2,hd3 | 可选视频质量，360P(sd)，540P(hd)，720P(hd2)，1080P(hd3)，默认全选 |
     
 #### 2.11 ykr1    
-请求路径：https://api.telecom.ac.cn/ykr1    
+请求路径：https://api.lijishi.com/ykr1    
 请求方式：GET    
 正确返回：{"Status":"True", "VER":"YKR1", "R1":"",  "encryptR":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -191,7 +190,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | pcookie | 否 | xxxxx | ptype为3/4时，需要具有阅读权限的cookie，ptype=3，pcookie=SESSION，pcookie=auth |
     
 #### 2.13 wetvsub    
-请求路径：https://api.telecom.ac.cn/wetvsub    
+请求路径：https://api.lijishi.com/wetvsub    
 请求方式：GET    
 正确返回：{"Status":"True", "VideoName":"", "VideoSub":"[{"url":"", "lang":"", "name":""}]", "[VideoSubZip]":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -205,7 +204,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | lang | 否 | zh | 可选zip文件命名语言，zh为中文，en为英文，默认为英文，仅在zip=1时生效 |
     
 #### 2.14 ximalaya    
-请求路径：https://api.telecom.ac.cn/ximalaya    
+请求路径：https://api.lijishi.com/ximalaya    
 请求方式：GET    
 正确返回：{"Status":"True", "UUID":"", "AudioName":"", "AudioLen":"", "AudioUrls":"[{"type":"", "url":""}]"}    
 正确返回：{"Status":"True", "UUID":"", "AlbumName":"", "TrackTotalNum":"", "AlbumUrls":"[{"index":"", AudioName":"", "AudioLen":"", "AudioUrls":"[{"type":"", "url":""}]"}]"}    
@@ -223,7 +222,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | qua | 否 | 1,2 | 可选音频质量，M4A_64(0), MP3_64(1), M4A_24(2), MP3_32(3), AAC_24(4)，默认全选 |
     
 #### 2.15 qq    
-请求路径：https://api.telecom.ac.cn/qq    
+请求路径：https://api.lijishi.com/qq    
 请求方式：GET    
 正确返回：{"Status":"True", "UUID":"", "VideoName":"", "VideoLen":"", "270P/540P/720P/1080P":""}    
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -238,7 +237,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | qua | 否 | 1,2 | 可选视频质量，270P(0), 540P(1), 720P(2), 1080P(3)，默认全选 |
     
 #### 2.15 iqiyi    
-请求路径：https://api.telecom.ac.cn/iqiyi    
+请求路径：https://api.lijishi.com/iqiyi    
 请求方式：GET    
 正确返回：{"Status":"True", "UUID":"", "VideoName":"", "VideoLen":"", "360P/540P/720P/1080P":""}    
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -252,22 +251,8 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | p3 | 否 | xxxx | IQIYI视频cookie，P1和P3相匹配 |
 | qua | 否 | 1,2 | 可选视频质量，360P(0), 540P(1), 720P(2), 1080P(3)，默认全选 |
     
-#### 2.16 oneword    
-请求路径：https://api.telecom.ac.cn/oneword    
-请求方式：GET    
-正确返回：{"Status":"True", "UUID":"", "ID": "", "hitokoto": "", "type": "", "from": "", "Origin": "https://hitokoto.cn/"}    
-错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
-接口说明：一言·闪光一句    
-代码参考：https://hitokoto.cn/    
-请求示例：https://api.telecom.ac.cn/oneword?id=1111    
-
-| 参数 | 必选 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| id | 否 | 1111 | 一言数据库句子ID，可指定返回该句子，默认随机 |
-| typeid | 否 | a | 一言数据库类型ID，可指定返回该类型句子，默认随机 |
-    
-#### 2.17 ykdrm    
-请求路径：https://api.telecom.ac.cn/ykdrm    
+#### 2.16 ykdrm    
+请求路径：https://api.lijishi.com/ykdrm    
 请求方式：GET    
 正确返回：{"Status":"True","VER":"YKDRM","KEY":{"HEX":"","BASE64":""}}    
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
@@ -277,18 +262,6 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
 | param | 是 | MSwxLDE= | R1,encryptR_server,copyright_key base64编码 |
-    
-#### 2.18 qqsportreplay    
-请求路径：https://api.telecom.ac.cn/qqsportreplay    
-请求方式：GET    
-正确返回：https://v.qq.com/x/cover/xxxxx.html    
-错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
-接口说明：TX体育回放跳转TX视频    
-请求示例：https://api.telecom.ac.cn/qqsportreplay?mid=100002:20244584    
-
-| 参数 | 必选 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| mid | 是 | 100002:20244584 | TX体育mid |
     
 ## 3、注意事项    
     
