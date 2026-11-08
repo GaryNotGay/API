@@ -19,7 +19,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "VideoName": "", "VideoTitle": "", "VideoLength": "", "标清/高清/超清/蓝光": ""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：MGTV视频解析M3U8    
-请求示例：https://api.telecom.ac.cn/mango?id=16322652&title=446003&qua=1    
+请求示例：https://api.lijishi.com/mango?id=16322652&title=446003&qua=1    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -35,7 +35,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 错误返回{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：TX视频请求参数校验算法    
 代码参考：https://www.jianshu.com/p/75619f7e3956    
-请求示例：https://api.telecom.ac.cn/ckey7x?platform=40201&vid=100701&sdt=v1010&tm=1651217559&ver=7.1    
+请求示例：https://api.lijishi.com/ckey7x?platform=40201&vid=100701&sdt=v1010&tm=1651217559&ver=7.1    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -52,7 +52,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：TX视频请求参数校验算法    
 代码参考：https://www.pohaier.com/2018/12/22/227.html    
-请求示例：https://api.telecom.ac.cn/ckey81?vid=i0037ryjlwn&time=1623678055&guid=6eb81823f6e496f9a87c88fbe977dee0&platform=4830201&url=https://wetv.vip    
+请求示例：https://api.lijishi.com/ckey81?vid=i0037ryjlwn&time=1623678055&guid=6eb81823f6e496f9a87c88fbe977dee0&platform=4830201&url=https://wetv.vip    
 
 
 | 参数 | 必选 | 示例 | 说明 |
@@ -70,7 +70,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：TX视频请求参数校验算法    
 代码参考：https://github.com/ZSAIm/iqiyi-parser/blob/master/js/tencent.js    
-请求示例：https://api.telecom.ac.cn/ckey91?   platform=10201&appver=3.5.57&vid=j002024w2wg&guid=1fcb9528b79f2065c9a281a7d554edd1&tm=1556617308&url=https://wetv.vip    
+请求示例：https://api.lijishi.com/ckey91?platform=10201&appver=3.5.57&vid=j002024w2wg&guid=1fcb9528b79f2065c9a281a7d554edd1&tm=1556617308&url=https://wetv.vip    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -87,7 +87,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "VER":"CMD5X", "KEY":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：IQIYI视频请求参数校验算法    
-请求示例：https://api.telecom.ac.cn/cmd5x?param=aXFpeWlwYXJhbQ==    
+请求示例：https://api.lijishi.com/cmd5x?param=aXFpeWlwYXJhbQ==    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -99,7 +99,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "VideoName":"", "VideoLength":"", "[width*high]": ""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：PPTV视频解析M3U8    
-请求示例：https://api.telecom.ac.cn/pptv?cid=26311295&qua=3,4    
+请求示例：https://api.lijishi.com/pptv?cid=26311295&qua=3,4    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "LiveName":"", "LiveCommentator":"", "Url": ""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：TX体育直播解析M3U8    
-请求示例：https://api.telecom.ac.cn/qqsport?mid=208:2288013&qua=1    
+请求示例：https://api.lijishi.com/qqsport?mid=208:2288013&qua=1    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -128,7 +128,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "VideoName":"", "VideoLength":"", "VideoUrl": "[{"TrySee":"", "rateDesc":"", "url":"", "videoCoding":""}]"}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：MIGU视频解析M3U8    
-请求示例：https://api.telecom.ac.cn/migu?qua=2,3,4,6,8&cid=732903127    
+请求示例：https://api.lijishi.com/migu?qua=2,3,4,6,8&cid=732903127    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -144,7 +144,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：YK视频请求参数校验算法    
 代码参考：https://blog.csdn.net/weixin_41813169/article/details/109815414    
-请求示例：https://api.telecom.ac.cn/yksign    
+请求示例：https://api.lijishi.com/yksign    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -156,7 +156,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "VideoName":"", "VideoLength":"", "VideoUrl": "[{"qua":"", "url":"", "drm":""}]"}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：YK视频解析M3U8    
-请求示例：https://api.telecom.ac.cn/youku?vid=XNTg2MDM3NjQzMg==&_m_h5_tk=xxx&_m_h5_tk_enc=xxx&cna=xxx&qua=hd3    
+请求示例：https://api.lijishi.com/youku?vid=XNTg2MDM3NjQzMg==&_m_h5_tk=xxx&_m_h5_tk_enc=xxx&cna=xxx&qua=hd3    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -172,15 +172,15 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "VER":"YKR1", "R1":"",  "encryptR":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：YK视频copyrightDRM关键参数    
-请求示例：https://api.telecom.ac.cn/ykr1    
+请求示例：https://api.lijishi.com/ykr1    
     
 #### 2.12 paper    
-请求路径：https://api.telecom.ac.cn/paper    
+请求路径：https://api.lijishi.com/paper    
 请求方式：GET    
 正确返回：{"Status":"True", "PaperName": "", "PaperUrl": ""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：解析多种报刊链接    
-请求示例：https://api.telecom.ac.cn/paper?ptype=1&pid=20220608    
+请求示例：https://api.lijishi.com/paper?ptype=1&pid=20220608    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -195,7 +195,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "VideoName":"", "VideoSub":"[{"url":"", "lang":"", "name":""}]", "[VideoSubZip]":""}    
 错误返回：{"Status":"False", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：WETV多语字幕解析    
-请求示例：https://api.telecom.ac.cn/wetvsub?vid=i0037ryjlwn&zip=1&lang=zh    
+请求示例：https://api.lijishi.com/wetvsub?vid=i0037ryjlwn&zip=1&lang=zh    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -210,8 +210,8 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "UUID":"", "AlbumName":"", "TrackTotalNum":"", "AlbumUrls":"[{"index":"", AudioName":"", "AudioLen":"", "AudioUrls":"[{"type":"", "url":""}]"}]"}    
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：ximalaya音频解析    
-请求示例：https://api.telecom.ac.cn/ximalaya?all=0&trackid=135045322&qua=0    
-请求示例：https://api.telecom.ac.cn/ximalaya?all=1&albumid=30510905&qua=0    
+请求示例：https://api.lijishi.com/ximalaya?all=0&trackid=135045322&qua=0    
+请求示例：https://api.lijishi.com/ximalaya?all=1&albumid=30510905&qua=0    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -227,7 +227,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "UUID":"", "VideoName":"", "VideoLen":"", "270P/540P/720P/1080P":""}    
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：TX视频解析    
-请求示例：https://api.telecom.ac.cn/qq?vid=n0046ht5pn8&coverid=mzc002003rpvd4j&qua=3         
+请求示例：https://api.lijishi.com/qq?vid=n0046ht5pn8&coverid=mzc002003rpvd4j&qua=3         
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -242,7 +242,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True", "UUID":"", "VideoName":"", "VideoLen":"", "360P/540P/720P/1080P":""}    
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：IQIYI视频解析    
-请求示例：https://api.telecom.ac.cn/iqiyi?id=1ezb353qy5c&qua=3    
+请求示例：https://api.lijishi.com/iqiyi?id=1ezb353qy5c&qua=3    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
@@ -257,7 +257,7 @@ License :  GNU GENERAL PUBLIC LICENSE Version 3
 正确返回：{"Status":"True","VER":"YKDRM","KEY":{"HEX":"","BASE64":""}}    
 错误返回：{"Status":"False", "UUID":"", "Message":"[Error Message]", "Info":"[Error Info]"}    
 接口说明：YK自研DRM三参数生成KEY    
-请求示例：https://api.telecom.ac.cn/ykdrm?param=MSwxLDE=    
+请求示例：https://api.lijishi.com/ykdrm?param=MSwxLDE=    
 
 | 参数 | 必选 | 示例 | 说明 |
 | --- | --- | --- | --- |
